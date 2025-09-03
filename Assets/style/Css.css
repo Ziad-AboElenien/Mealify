@@ -1,0 +1,1135 @@
+/* font-family: "Inter",
+sans-serif;
+font-family: "Amatic SC",
+sans-serif;
+font-family: "Open Sans",
+sans-serif; */
+
+/* general */
+
+html 
+{
+  scroll-behavior: smooth;
+}
+
+
+html
+{
+    --main-color:rgb(206,18,18) ;
+    --header-main-color: black ;
+    --main-bg-color-f:#eeeeee ;
+    --main-bg-color-s:white ;
+    --color-white-black:white ;
+    --black-white: black ;
+    --hover-color: red;
+    --chef-img : url('../../images/team-shape.svg') ;
+    --chef-img-color:white;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 16px;
+    line-height: normal;
+}
+
+div.container {
+    width: 85%;
+    margin-inline: auto;
+}
+
+
+
+/* Navbar */
+
+
+div.nav div.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px 5px;
+}
+
+div.nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 5100;
+    background-color: var(--main-bg-color-s);
+    box-shadow: 0px 1px 6px black;
+}
+
+
+:root {
+  --light: #d8dbe0;
+  --dark: #28292c;
+}
+
+/* إخفاء التشيك بوكس */
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* السويتش container */
+.toggle-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* المسافة بين السويتش والمنيو */
+  height: 35px;
+}
+
+/* ليبل السويتش */
+.switch-label {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: var(--dark);
+  border-radius: 25px;
+  cursor: pointer;
+  border: 2px solid var(--dark);
+  overflow: hidden;
+}
+
+/* الدائرة المتحركة */
+.slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  transition: 0.4s;
+  overflow: hidden;
+}
+
+/* القمر (الوضع الليلي) */
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--dark);
+  box-shadow: inset 8px -3px 0 0 var(--light); /* شكل الهلال */
+  transition: 0.4s;
+  z-index: 2;
+}
+
+/* الشعاع / الموجة */
+.slider::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: gold;
+  opacity: 0;
+  transform: scale(1);
+  z-index: 1;
+}
+
+/* الوضع النهاري */
+.checkbox:checked ~ .nav .toggle-switch .switch-label .slider {
+  background-color: var(--light);
+}
+
+.checkbox:checked ~ .nav .toggle-switch .switch-label .slider::before {
+  transform: translateX(30px);
+  background-color: gold; /* الشمس */
+  box-shadow: 
+    0 0 5px orange,
+    0 0 10px orange,
+    0 0 15px gold,
+    0 0 20px gold;
+}
+
+/* الانفجار / الموجة */
+.checkbox:checked ~ .nav .toggle-switch .switch-label .slider::after {
+  left: 34px; /* يتحرك مع الشمس */
+  background: gold;
+  animation: pulse 1s ease-out forwards;
+}
+
+/* أنيميشن الموجة */
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0.3;
+    transform: scale(3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(4);
+  }
+}
+
+/* أيقونة المنيو */
+#list {
+  font-size: 20px;
+  color: var(--dark);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* تغير لون الأيقونة في النهار */
+.checkbox:checked ~ .nav .toggle-switch #list {
+  color: black;
+}
+
+
+body input#checkbox:checked ~ *
+{
+
+    --main-color: #c17e1f ;
+    --header-main-color: white;
+    --main-bg-color-f:#252525 ;
+    --main-bg-color-s:#202020 ;
+    --hover-color: rgba(192, 125, 31, 0.624);
+    --color-white-black:black ;
+    --black-white: white ;
+    --chef-img : url('../../images/team-shape-dark.svg') ;
+    --chef-img-color:#161616;
+
+} 
+
+div.nav div.links
+{
+    display: none;
+}
+
+div.nav ul li {
+    display: inline-block;
+    color: rgb(127, 127, 144);
+    padding: 5px 15px;
+    font-size: 17px;
+    position: relative;
+}
+
+div.nav ul li::after
+{
+    content: "";
+    border: 1px solid var(--main-color);
+    width: 40px;
+    position: absolute;
+    top: 100%;
+    left: 25%;
+    right: 25%;
+    transform: scaleX(0%);
+    transition: transform .3s;
+    transform-origin: left;
+}
+
+div.nav ul li:hover::after{
+    transform: scaleX(100%);
+}
+
+
+div.nav ul li:hover {
+    color: var(--header-main-color);
+}
+
+div.nav a.logo
+{
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--header-main-color);
+}
+div.nav a.logo span
+{
+    color: var( --main-color);
+}
+
+body:not(:has(:target)) div.nav div.links ul li.home
+{
+        /* --main-color-:red ; */
+
+    color: var(--header-main-color , black);
+}
+
+body:has(#home:target) .nav .links li.home::after {
+    transform: scaleX(100%);
+}
+
+/* Chefs active underline */
+body:has(#chefs:target) .nav .links li.chefs::after {
+    transform: scaleX(100%);
+}
+
+/* Gallery active underline */
+body:has(#gallery:target) .nav .links li.gallery::after {
+    transform: scaleX(100%);
+}
+
+/* Contact active underline */
+body:has(#contact:target) .nav .links li.contact::after {
+    transform: scaleX(100%);
+}
+
+
+body:not(:has(:target)) .nav .links li.home::after {
+    transform: scaleX(100%);
+}
+
+body:has(#home:target) div.nav div.links ul li.home 
+{
+    color: var(--header-main-color);
+}
+body:has(#chefs:target) div.nav div.links ul li.chefs
+{
+    color: var(--header-main-color);
+}
+body:has(#gallery:target) div.nav div.links ul li.gallery
+{
+    color: var(--header-main-color);
+}
+body:has(#contact:target) div.nav div.links ul li.contact
+{
+    color: var(--header-main-color);
+}
+
+
+/* Home */
+
+div.home
+{
+    background-color: var(--main-bg-color-f);
+}
+
+div.home div.container
+{
+    padding-block: 100px;
+    display: flex;
+    height: 100%;
+    flex-flow: column-reverse ;
+    justify-content: space-between;
+    align-items: center ;
+
+}
+
+div.home div.image
+{
+    padding-top: 50px;
+}
+
+div.home div.image img
+{
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.home img {
+  will-change: transform;
+}
+
+/* طول ما الماوس فوق الصورة */
+.home img:hover {
+  animation: shake-all 0.6s infinite linear;
+}
+
+/* الاهتزاز في كل الاتجاهات */
+@keyframes shake-all {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-5px, -5px); }
+  40%  { transform: translate(5px, -5px); }
+  60%  { transform: translate(5px, 5px); }
+  80%  { transform: translate(-5px, 5px); }
+  100% { transform: translate(0, 0); }
+}
+
+
+div.home div.welcome h2{
+    font-family: "Amatic SC",sans-serif;
+    font-weight: 700;
+    font-size: 65px;
+    color:var(--header-main-color) ;
+    margin-bottom: 10px;
+}
+
+div.home div.welcome p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color:rgb(79, 79, 90) ;
+
+}
+
+div.home div.welcome div.book 
+{
+    color: white;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: start;
+
+}
+
+div.home div.welcome div.book div.icon
+{
+    color: black;
+    display: flex;
+    flex-flow: row ;
+    align-items: center;
+    padding-top: 20px;
+}
+
+div.home div.welcome div.book a.aa,
+div.home div.welcome div.book a.w
+{
+    margin-top:20px ;
+}
+
+div.home div.welcome div.book a.aa
+{
+    background-color: var(--main-color , rgba(165, 42, 42, 0.998));
+    padding: 10px 25px;
+    border-radius: 200px;
+    border-top-left-radius: 0;
+    color: var(--main-bg-color-s);
+}
+
+div.home div.welcome div.book a.aa:hover
+{
+    background-color:rgb(209, 70, 23);
+}
+
+
+div.home div.welcome div.book a.w:hover div.icon div.btnicon  i,
+div.home div.welcome div.book a.w:hover div.icon  p
+{
+    color: var(--hover-color);
+}
+
+div.home div.welcome div.book div.back
+{
+    position: relative;
+    background-image: linear-gradient(to right , var(--main-color) 0% 50% , var(--main-bg-color-f) 50%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+
+div.home div.welcome div.book div.back div.btnicon
+{
+    position: absolute;
+    background-color: var(--main-bg-color-s);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+div.home div.welcome div.book div.back div.btnicon i
+{
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+/* CHEFS */
+
+div.chefs
+{
+    padding-block: 100px;
+    background-color: var(--main-bg-color-s);
+}
+
+div.chefs div.header{
+    text-align: center;
+}
+
+div.chefs div.header h2 {
+    font-family: "Inter",sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(127, 127, 144);
+    margin: 0;
+}
+
+div.chefs div.header p {
+font-family: "Amatic SC",sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    color: var(--black-white);
+    margin: 0;
+    margin-bottom: 30px;
+}
+div.chefs div.header p span {
+
+    color: var(--main-color);
+}
+
+div.chefs div.chef
+{
+    padding-block: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.chefs div.chef div.item
+{
+    box-shadow: 3px 3px 15px 0px var(--chef-img-color);
+    transition: transform .5s;
+    overflow: hidden;
+    border-radius: 9px;
+    margin-bottom: 50px;
+}
+
+div.chefs div.chef div.item div.image {
+    position: relative;
+    width: 100%;
+}
+
+div.chefs div.chef div.item:hover
+{
+    transform: scale(1.1);
+}
+
+div.chefs div.chef div.item img {
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 70%;
+}
+
+div.chefs div.chef div.item div.image::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background-image: var(--chef-img);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.chefs div.chef div.item div.layer
+{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 10px;
+    background-color: #ffffff4d;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column ;
+    justify-content: space-evenly;
+    height: 152px;
+    transform: translatex(200%);
+    transition: transform .8s;
+    color: rgba(0, 0, 0, 0.691);
+
+}
+
+div.chefs div.chef div.item div.layer a
+{
+    transition: transform .3s;
+}
+
+div.chefs div.chef div.item div.layer a:hover
+{
+    transform: scale(1.3);
+}
+
+div.chefs div.chef div.item:hover div.layer
+{
+    transform: translateX(0%)
+}
+
+div.chefs div.chef div.item div.desc
+{
+    height: 30%;
+    text-align: center;
+    padding-inline: 20px;
+    background-color: var(--chef-img-color);
+}
+
+div.chefs div.chef div.item div.desc h3
+{
+    font-family: "Inter",sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--black-white);
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+div.chefs div.chef div.item div.desc span
+{
+    font-family: "Open Sans",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(127, 127, 144);
+}
+
+div.chefs div.chef div.item div.desc p
+{
+    font-family: "Open Sans",sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(127, 127, 144);
+    font-style: italic;
+}
+
+
+/* GALLERY */
+
+div.gallery
+{
+    padding-block: 100px;
+    background-color: var(--main-bg-color-f);
+}
+
+div.gallery div.header{
+    text-align: center;
+}
+
+div.gallery div.header h2 {
+    font-family: "Inter",sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(127, 127, 144);
+    margin: 0;
+}
+
+div.gallery div.header p {
+font-family: "Amatic SC",sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    color: var(--black-white);
+    margin: 0;
+    margin-bottom: 30px;
+}
+div.gallery div.header p span {
+
+    color: var(--main-color);
+}
+
+div.gallery div.photos
+{
+    /* height: 765px; */
+    display: flex;
+    flex-flow: column wrap;
+    gap: 20px 0px;
+}
+
+
+div.gallery div.photos div.image
+{
+    position: relative;
+    overflow: hidden;
+    border: 4px solid white;
+    order: 10;
+}
+
+div.gallery div.photos div.pizza
+{
+    order: 1;
+}
+
+div.gallery div.photos div.burger
+{
+    order: 2;
+}
+
+div.gallery div.photos div.image img
+{
+    width: 100%;
+    display: block;
+    transition: transform .4s;
+}
+
+
+div.gallery div.photos div.image:hover img
+{
+    transform: scale(1.1);
+}
+
+div.gallery div.photos div.image div.layer
+{
+    background-color: rgba(0, 0, 0, 0.519);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(200%);
+    transition: transform .4s;
+    text-align: center;
+}
+
+div.gallery div.photos div.image div.layer p
+{
+    width: 90%;
+}
+
+div.gallery div.photos div.image:hover div.layer
+{
+    transform: translateY(0);
+}
+
+div.gallery div.photos div.image div.layer h2
+{
+    font-family: "Inter",sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+div.gallery div.photos div.image div.layer p
+{
+    font-family: "Open Sans",sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(221,221,221);
+    margin: 0;
+}
+
+/* CONTACT */
+
+div.contact
+{
+    padding-block: 100px;
+    background-color: var(--main-bg-color-s);
+}
+
+div.contact div.header{
+    text-align: center;
+}
+
+div.contact div.header h2 {
+    font-family: "Inter",sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(127, 127, 144);
+    margin: 0;
+}
+
+div.contact div.header p {
+font-family: "Amatic SC",sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    color: var(--black-white);
+    margin: 0;
+    margin-bottom: 30px;
+}
+div.contact div.header p span {
+
+    color: var(--main-color);
+}
+
+div.contact div.frame iframe
+{
+    width: 100%;
+    height: 350px;
+}
+
+div.contact div.items 
+{
+    margin-top: 30px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 0px 10px;
+}
+
+div.contact div.items div.item 
+{
+    display: flex;
+    flex-flow: row ;
+    gap: 5px 0px;
+    background-color:rgb(245,245,245) ;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+
+
+div.contact div.items div.item div.icon i
+{
+    color: white;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+div.contact div.items div.item div.icon
+{
+    position: relative;
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+}
+
+div.contact div.items div.item div.text
+{
+    margin-left: 10px;
+}
+
+div.contact div.items div.item div.text h3
+{
+    font-family: "Inter",sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(125, 125, 125);
+    margin-bottom: 0;
+}
+
+div.contact div.items div.item div.text p,
+div.contact div.items div.item div.text a
+{
+    font-family: "Open Sans",sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(33, 37, 41);
+    margin-top: 5px;
+}
+
+div.contact div.items div.item div.text p strong{
+    font-weight: bolder;
+}
+
+div.contact form
+{
+    background-color: var(--color-white-black);
+    margin-block: 20px;
+    position: relative;
+    height: 430px;
+    width: 100%;
+    box-shadow: 0px 1px 6px rgb(127, 127, 144);
+}
+
+div.contact form div.data
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+}
+
+div.contact form div.data .num
+{
+    height: 40px;
+    margin-inline: 5px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border-color: rgba(0, 0, 0, 0.159);
+    margin-bottom: 20px;
+}
+
+div.contact form div.data #sub ,
+div.contact form div.data #message
+{
+    width: 97%;
+    height: 40px;
+    margin-inline: 5px;
+    border-radius: 8px;
+    border-color: rgba(0, 0, 0, 0.163);
+    margin-bottom: 20px;
+}
+
+div.contact form div.data #sub: ,
+div.contact form div.data #message:focus
+{
+    border-color: var(--main-color);
+}
+
+input:focus,
+textarea:focus {
+    border-color: red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
+    outline: none;
+}
+
+div.contact form div.data div.submit #message
+{
+    height: 130px;
+    resize: both;
+    overflow:auto
+    
+}
+
+
+div.contact form div.data div.submit
+{
+    height: 200px;
+    width: 97%;
+    position: relative;
+}
+
+div.contact form div.data div.submit button
+{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 20px;
+    border-radius: 852px;
+    background-color: var(--main-color);
+    color: white;
+    border-color: var(--main-color);
+}
+
+div.contact form div.data div.submit button:hover
+{
+    background-color: var(--hover-color);
+}
+
+/* FOOTER */
+
+div.footer div.container
+{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+
+div.footer
+{
+    background-image:url('../../images/textured-metal-background.jpg') ;
+    box-shadow: 0px 1px 6px rgb(127, 127, 144);
+        padding-top: 30px;
+
+}
+
+div.footer div.section1
+{
+    padding-bottom: 40px;
+}
+
+div.footer div.section1 div.line1
+{
+    display: flex;
+    flex-flow: row;
+    align-items: center ;
+    width: 58%;
+    transition: transform .2s;
+}
+
+div.footer div.section1 div.line1:hover
+{
+    transform: scale(1.3);
+}
+
+div.footer div.section1 div.line1 img
+{
+    width: 40px;
+    height: 40px;
+}
+div.footer div.section1 div.line1 h2
+{
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+div.footer div.section1 div.line1 h2 span
+{
+    color: var(--main-color);
+}
+
+div.footer div.section1 h3
+{
+    font-family: "Inter",sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    font-weight: bolder;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.365);
+}
+
+div.footer div.section1 ul
+{
+    display: flex;
+    flex-flow: row ;
+    justify-content: space-around;
+}
+
+
+div.footer div.section1 ul li:hover a i
+{
+    transform: scale(1.3);
+}
+
+
+div.footer div.section1 ul li a i
+{
+    font-size: 25px;
+    transition: transform .2s;
+}
+
+
+div.footer div.section2
+{
+    padding-inline: 1%;
+}
+
+div.footer div.section2 h3
+{
+    font-family: "Inter",sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    font-weight: bolder;
+}
+
+div.footer div.section2 .item1 .search input,
+div.footer div.section2 .item1 .search button
+{
+        padding-inline: 15px;
+}
+div.footer div.section2 .item1 .search
+{
+    height: 40px;
+    display: flex;
+
+}
+
+div.footer div.section2 .item1 .search input
+{
+    flex-grow: 1;
+}
+
+
+div.footer div.section2 .item1 .search button
+{
+    background-color: var(--main-color);
+    border-left: 5px solid black;
+}
+div.footer div.section2 .item1 .search button:hover
+{
+    background-color: red;
+}
+
+div.footer div.section2 .item2 ul 
+{
+    display: flex ;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+}
+
+
+
+div.footer div.section2 .item2 ul li
+{
+    position: relative;
+    width: 48%;
+    padding: 10px;
+    border-radius: 4px;
+    transition: transform .4s;
+}
+
+
+div.footer div.section2 .item2 ul li:before {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 0;
+    transform: translatex(-100%); 
+    background-image: url('../../images/arrow.png');
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+}
+ 
+
+div.footer div.section2 .item2 ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+div.footer div.section2 .item2 ul li:hover a {
+  color: var(--main-color);
+}
+
+div.footer div.section2 .item2 ul li:hover
+{
+    background-color:rgba(250, 235, 215, 0.217) ;
+    transform: translatex(13px);
+}
+
+div.footer div.section3
+{
+    margin-bottom: 15px;
+}
+
+div.footer div.section3 h3
+{
+    font-family: "Inter",sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    font-weight: bolder;
+}
+
+div.footer div.section3 div.fin
+{
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+
+}
+
+
+div.footer div.section3 div.fin i
+{
+    font-size: 22px;
+    color: var(--main-color);
+}
+
+div.footer div.section3 div.fin .lin
+{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+div.footer div.section3
+{
+    margin-bottom: 15px;
+}
