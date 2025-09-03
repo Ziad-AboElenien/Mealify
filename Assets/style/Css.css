@@ -492,6 +492,7 @@ div.chefs div.chef div.item
     overflow: hidden;
     border-radius: 9px;
     margin-bottom: 50px;
+    position: relative ;
 }
 
 div.chefs div.chef div.item div.image {
@@ -1132,4 +1133,5 @@ div.footer div.section3 div.fin .lin
 div.footer div.section3
 {
     margin-bottom: 15px;
+
 }
